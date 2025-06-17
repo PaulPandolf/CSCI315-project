@@ -54,11 +54,3 @@ rm main
 
 - Headers should be placed under `include/CSCI315-project/` for namespacing.
 - Add `.cpp` files to `src/` and they will be compiled automatically by the wildcard.
-
-## 📄 License
-
-[Insert license here]
-
-## ✍️ Author
-
-[Your Name] · [Your Institution]
