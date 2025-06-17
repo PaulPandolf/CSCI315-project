@@ -1,2 +1,0 @@
-
-  list.insertFirst(3);
