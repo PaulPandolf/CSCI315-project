@@ -8,3 +8,13 @@
 {"uniqueId": "ID008", "ISBN": "9780201485677", "title": "Design Patterns", "author": "Erich Gamma", "publicationDate": "1994-10-21", "description": "Reusable object-oriented software patterns.", "language": "English"}
 {"uniqueId": "ID009", "ISBN": "9780321125217", "title": "Test Driven Development", "author": "Kent Beck", "publicationDate": "2003-05-01", "description": "By example with a focus on quality.", "language": "English"}
 {"uniqueId": "ID010", "ISBN": "9780201616224", "title": "Refactoring", "author": "Martin Fowler", "publicationDate": "1999-07-08", "description": "Improving the design of existing code.", "language": "English"}
+{"uniqueId": "ID011", "ISBN": "9780000000001", "title": " a book", "author": "Author A", "publicationDate": "2020-01-01", "description": "Starts with a space.", "language": "English"}
+{"uniqueId": "ID012", "ISBN": "9780000000002", "title": "!Exclamations", "author": "Author B", "publicationDate": "2020-01-02", "description": "Starts with punctuation.", "language": "English"}
+{"uniqueId": "ID013", "ISBN": "9780000000003", "title": "#Hashtag C++", "author": "Author C", "publicationDate": "2020-01-03", "description": "Another punctuation start.", "language": "English"}
+{"uniqueId": "ID014", "ISBN": "9780000000004", "title": "123 C++ Tricks", "author": "Author D", "publicationDate": "2020-01-04", "description": "Starts with numbers.", "language": "English"}
+{"uniqueId": "ID015", "ISBN": "9780000000005", "title": "Accelerated c++", "author": "Author E", "publicationDate": "2020-01-05", "description": "Same name as another but different case.", "language": "English"}
+{"uniqueId": "ID016", "ISBN": "9780000000006", "title": "accelerated C++", "author": "Author F", "publicationDate": "2020-01-06", "description": "Lowercase variation.", "language": "English"}
+{"uniqueId": "ID017", "ISBN": "9780000000007", "title": "C++ & Beyond", "author": "Author G", "publicationDate": "2020-01-07", "description": "Special character ampersand.", "language": "English"}
+{"uniqueId": "ID018", "ISBN": "9780000000008", "title": "C++11", "author": "Author H", "publicationDate": "2020-01-08", "description": "Version suffix.", "language": "English"}
+{"uniqueId": "ID019", "ISBN": "9780000000009", "title": "Zebra Patterns", "author": "Author I", "publicationDate": "2020-01-09", "description": "Late in lex order.", "language": "English"}
+{"uniqueId": "ID020", "ISBN": "9780000000010", "title": "a Book", "author": "Author J", "publicationDate": "2020-01-10", "description": "Starts with lowercase 'a'.", "language": "English"}

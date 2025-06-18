@@ -6,7 +6,9 @@ using namespace std;
 
 void bookType::print() const
 {
-  cout << uniqueId << " " << ISBN << " " << title << " " << author << " " << publicationDate << " " << description << " " << language;
+  // cout << uniqueId << " " << ISBN << " " << title << " " << author << " " << publicationDate << " " << description << " " << language;
+
+  cout << title;
 }
 
 void bookType::setBook(const string &uniqueId, const string &ISBN,
@@ -36,43 +38,6 @@ bookType::bookType(const string &uniqueId, const string &ISBN,
   this->description = description;
   this->language = language;
 }
-
-// string bookType::getAddressString() const
-// {
-//   return address1 + " " + address2 + " " + city + " " + state + " " + zip;
-// }
-
-// string bookType::getAddress1() const
-// {
-//   return address1;
-// }
-
-// string bookType::getAddress2() const
-// {
-//   return address2;
-// }
-
-// string bookType::getCity() const
-// {
-//   return city;
-// }
-
-// string bookType::getState() const
-// {
-//   return state;
-// }
-
-// string bookType::getZip() const
-// {
-//   return zip;
-// }
-
-// ostream &operator<<(ostream &osObject, const bookType &other)
-// {
-//   osObject << " " << other.address1 << " " << other.address2 << " " << other.city << " " << other.state << " " << other.zip << " ";
-
-//   return osObject;
-// }
 
 bookType::bookType()
 {

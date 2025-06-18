@@ -16,17 +16,21 @@ int main()
   libraryCatalogType libraryCatalog;
   ifstream infile("libraryCatalog.ndjson");
 
-  libraryCatalog.uploadBooks(infile, libraryCatalog);
-
   if (!infile)
   {
     cerr << "The library database file does not exist." << endl;
     return 1;
   }
 
+  libraryCatalog.uploadBooks(infile, libraryCatalog);
+
+  return 0;
+
   while (true)
   {
     clearScreen();
+    libraryCatalog.print();
+    cout << endl;
     showMainMenu();
   }
 
@@ -127,28 +131,5 @@ void showMainMenu()
       valid == false;
       break;
     }
-  }
-}
-
-void initializeData(ifstream &infile, libraryCatalogType &libraryCatalog)
-{
-  string line;
-  while (getline(infile, line))
-  {
-    if (line.empty())
-      continue;
-
-    json bookJson = json::parse(line); // https://github.com/nlohmann/json
-
-    std::string uniqueId = bookJson["uniqueId"];
-    std::string ISBN = bookJson["ISBN"];
-    std::string title = bookJson["title"];
-    std::string author = bookJson["author"];
-    std::string publicationDate = bookJson["publicationDate"];
-    std::string description = bookJson["description"];
-    std::string language = bookJson["language"];
-
-    bookType book(uniqueId, ISBN, title, author, publicationDate, description, language);
-    libraryCatalog.insert(book);
   }
 }

@@ -8,6 +8,14 @@ using namespace std;
 class bookType
 {
 public:
+  const std::string &getUniqueId() const { return uniqueId; }
+  const std::string &getISBN() const { return ISBN; }
+  const std::string &getTitle() const { return title; }
+  const std::string &getAuthor() const { return author; }
+  const std::string &getPublicationDate() const { return publicationDate; }
+  const std::string &getDescription() const { return description; }
+  const std::string &getLanguage() const { return language; }
+
   void print() const;
 
   void setBook(const string &uniqueId, const string &ISBN,
@@ -15,15 +23,7 @@ public:
                const string &publicationDate, const string &description,
                const string &language);
 
-  string getAddressString() const;
-
   friend ostream &operator<<(ostream &, const bookType &other);
-  bookType getAddress() const;
-  string getAddress1() const;
-  string getAddress2() const;
-  string getCity() const;
-  string getState() const;
-  string getZip() const;
 
   bookType();
 
