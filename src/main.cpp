@@ -24,8 +24,6 @@ int main()
 
   libraryCatalog.uploadBooks(infile, libraryCatalog);
 
-  return 0;
-
   while (true)
   {
     clearScreen();
