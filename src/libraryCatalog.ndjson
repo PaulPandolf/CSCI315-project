@@ -1,0 +1,10 @@
+{"uniqueId": "ID001", "ISBN": "9780131103627", "title": "C++ Primer", "author": "Stanley Lippman", "publicationDate": "2012-08-16", "description": "A comprehensive guide to C++.", "language": "English"}
+{"uniqueId": "ID002", "ISBN": "9780321334879", "title": "Effective C++", "author": "Scott Meyers", "publicationDate": "2005-05-22", "description": "55 specific ways to improve your C++ programs.", "language": "English"}
+{"uniqueId": "ID003", "ISBN": "9780596007614", "title": "Head First C++", "author": "David Griffiths", "publicationDate": "2011-01-01", "description": "A brain-friendly guide to C++.", "language": "English"}
+{"uniqueId": "ID004", "ISBN": "9780134498379", "title": "C++ Concurrency in Action", "author": "Anthony Williams", "publicationDate": "2019-03-10", "description": "Multithreading and concurrency in C++.", "language": "English"}
+{"uniqueId": "ID005", "ISBN": "9780132354165", "title": "Clean Code", "author": "Robert C. Martin", "publicationDate": "2008-08-01", "description": "A handbook of agile software craftsmanship.", "language": "English"}
+{"uniqueId": "ID006", "ISBN": "9781491903995", "title": "The C++ Programming Language", "author": "Bjarne Stroustrup", "publicationDate": "2013-05-19", "description": "The definitive book by the creator of C++.", "language": "English"}
+{"uniqueId": "ID007", "ISBN": "9780131857575", "title": "Accelerated C++", "author": "Andrew Koenig", "publicationDate": "2000-09-10", "description": "A fast-paced introduction to C++.", "language": "English"}
+{"uniqueId": "ID008", "ISBN": "9780201485677", "title": "Design Patterns", "author": "Erich Gamma", "publicationDate": "1994-10-21", "description": "Reusable object-oriented software patterns.", "language": "English"}
+{"uniqueId": "ID009", "ISBN": "9780321125217", "title": "Test Driven Development", "author": "Kent Beck", "publicationDate": "2003-05-01", "description": "By example with a focus on quality.", "language": "English"}
+{"uniqueId": "ID010", "ISBN": "9780201616224", "title": "Refactoring", "author": "Martin Fowler", "publicationDate": "1999-07-08", "description": "Improving the design of existing code.", "language": "English"}
