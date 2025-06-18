@@ -11,6 +11,8 @@ void clearScreen();
 void searchBook();
 void escapeText();
 
+// use this to run the project: "g++ *.cpp -o main && ./main"
+
 int main()
 {
   libraryCatalogType libraryCatalog;
