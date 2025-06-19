@@ -26,24 +26,15 @@ int main()
 
   libraryCatalog.uploadBooks(infile, libraryCatalog);
 
+  // TODO Delete one of the books from the librarycatalog.
+
   while (true)
   {
     clearScreen();
-    libraryCatalog.print();
+    libraryCatalog.print(); // debugging / example purposes
     cout << endl;
     showMainMenu();
   }
-
-  doublyLinkedList<int> list;
-
-  list.insert(1);
-  list.insert(2);
-  list.insert(3);
-  list.insert(4);
-  list.insert(5);
-  list.insert(6);
-
-  list.print();
 
   return 0;
 }
