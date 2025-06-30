@@ -3,15 +3,19 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <algorithm>
 #include "libraryCatalogType.h"
 #include "doublyLinkedList.h"
 
-void showMainMenu();
-void clearScreen();
-void searchBook();
-void escapeText();
+using namespace std;
 
-// use this to run the project: "g++ *.cpp -o main && ./main"
+void showMainMenu(libraryCatalogType &catalog);
+void clearScreen();
+void escapeText();
+void searchBook();
+void uploadBooks();
+void addBook(libraryCatalogType &catalog);    // new
+void deleteBook(libraryCatalogType &catalog); // new
 
 int main()
 {
@@ -26,20 +30,57 @@ int main()
 
   libraryCatalog.uploadBooks(infile, libraryCatalog);
 
-  // TODO Delete one of the books from the librarycatalog.
-
   while (true)
   {
     clearScreen();
-    libraryCatalog.print(); // debugging / example purposes
+    libraryCatalog.print();
     cout << endl;
-    showMainMenu();
+    showMainMenu(libraryCatalog);
   }
 
   return 0;
 }
 
-// source: https://medium.com/@ryan_forrester_/c-screen-clearing-how-to-guide-cff5bf764ccd
+void showMainMenu(libraryCatalogType &catalog)
+{
+  cout << "Welcome to the CSCI315 Library! What action would you like to perform?\n";
+  escapeText();
+  cout << "1. List catalog\n";
+  cout << "2. Search catalog\n";
+  cout << "3. Upload books from file\n";
+  cout << "4. Add a book\n";
+  cout << "5. Delete a book\n";
+  cout << "\nEnter your choice: ";
+
+  int selection;
+  cin >> selection;
+
+  switch (selection)
+  {
+  case 1:
+    clearScreen();
+    catalog.print();
+    system("pause");
+    break;
+  case 2:
+    searchBook();
+    break;
+  case 3:
+    uploadBooks();
+    break;
+  case 4:
+    addBook(catalog);
+    break;
+  case 5:
+    deleteBook(catalog);
+    break;
+  default:
+    cout << "Invalid selection.\n";
+    system("pause");
+    break;
+  }
+}
+
 void clearScreen()
 {
 #ifdef _WIN32
@@ -49,78 +90,100 @@ void clearScreen()
 #endif
 }
 
+void escapeText()
+{
+  cout << "Press ESC at any time to return to the main menu\n\n";
+}
+
 void searchBook()
 {
   clearScreen();
   escapeText();
-  cout << "Search Catalog\n\n";
-  while (true)
-  {
-  }
+  cout << "Search Catalog (Not yet implemented)\n\n";
+  system("pause");
 }
 
 void uploadBooks()
 {
   clearScreen();
   escapeText();
-  cout << "Upload Books\n\n";
-  while (true)
-  {
-  }
+  cout << "Upload Books (Not yet implemented)\n\n";
+  system("pause");
 }
 
-void clearLastLine() // https://www.reddit.com/r/cpp_questions/comments/14ypjb6/how_do_i_replace_already_printed_text_in_the/
-{
-  for (int i = 0; i < 100; ++i)
-  {
-    std::cout << " " << '\r';
-  }
-}
+// new- add/updte function
 
-void escapeText()
+void addBook(libraryCatalogType &catalog)
 {
-  cout << "Press ESC at any time to return to the main menu\n\n";
-}
-
-void showMainMenu()
-{
-  cout << "Welcome to the CSCI315 Library! What action would you like to perform?" << endl;
+  clearScreen();
   escapeText();
-  cout << "1. List catalog" << endl;
-  cout << "2. Search catalog" << endl;
-  cout << "3. Add a book" << endl;
-  cout << "4. Upload books from file" << endl;
-  bool valid = false;
-  int selection;
-  double result;
+  cout << "Add New Book\n\n";
 
-  string errorStr = "Invalid selection\n";
+  cin.ignore(); // Flush newline character
 
-  // loop over this until valid input and no errors recieved.
-  while (valid == false)
+  string uniqueId, ISBN, title, author, publicationDate, description, language;
+
+  cout << "Enter Unique ID: ";
+  getline(cin, uniqueId);
+  cout << "Enter ISBN: ";
+  getline(cin, ISBN);
+  cout << "Enter Title: ";
+  getline(cin, title);
+  cout << "Enter Author: ";
+  getline(cin, author);
+  cout << "Enter Publication Date (yyyy-mm-dd): ";
+  getline(cin, publicationDate);
+  cout << "Enter Description: ";
+  getline(cin, description);
+  cout << "Enter Language: ";
+  getline(cin, language);
+
+  bookType newBook(uniqueId, ISBN, title, author, publicationDate, description, language);
+  catalog.insert(newBook);
+
+  cout << "\nBook added successfully!\n";
+  system("pause");
+}
+
+void deleteBook(libraryCatalogType &catalog)
+{
+  clearScreen();
+  escapeText();
+  cout << "Delete Book\n\n";
+
+  cin.ignore(); // flush newline character
+
+  string titleToDelete;
+  cout << "Enter the title of the book to delete: ";
+  getline(cin, titleToDelete);
+
+  // make lowercase for case insensitive comparison
+  transform(titleToDelete.begin(), titleToDelete.end(), titleToDelete.begin(), ::tolower);
+
+  nodeType<bookType> *current = catalog.first;
+  bool found = false;
+
+  while (current != nullptr)
   {
-    cin >> selection;
+    string currentTitle = current->info.getTitle();
+    string originalTitle = currentTitle; // to print original case
+    transform(currentTitle.begin(), currentTitle.end(), currentTitle.begin(), ::tolower);
 
-    switch (selection)
+    if (currentTitle == titleToDelete)
     {
-    case 1:
-      /* code */
-      break;
-    case 2:
-      searchBook();
-      /* code */
-      break;
-    case 3:
-      /* code */
-      break;
-    case 4:
-      uploadBooks();
-      /* code */
-      break;
-
-    default:
-      valid == false;
+      catalog.deleteNode(current->info);
+      cout << "\nBook titled '" << originalTitle << "' deleted successfully.\n";
+      found = true;
       break;
     }
+
+    current = current->next;
   }
+
+  if (!found)
+  {
+    cout << "\nBook titled '" << titleToDelete << "' not found.\n";
+  }
+
+  system("pause");
 }
