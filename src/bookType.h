@@ -25,6 +25,9 @@ public:
 
   friend ostream &operator<<(ostream &, const bookType &other);
 
+  bool operator==(const bookType &other) const;
+  bool operator>=(const bookType &other) const;
+
   bookType();
 
   bookType(const string &uniqueId, const string &ISBN,

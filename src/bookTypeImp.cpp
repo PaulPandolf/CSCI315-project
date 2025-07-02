@@ -49,3 +49,14 @@ bookType::bookType()
   this->description = "";
   this->language = "";
 }
+
+bool bookType::operator==(const bookType &other) const
+{
+  // You can choose which fields to compare. Usually ISBN is unique:
+  return this->title == other.title;
+}
+
+bool bookType::operator>=(const bookType &other) const
+{
+  return this->title >= other.title;
+}
