@@ -6,9 +6,13 @@ using namespace std;
 
 void bookType::print() const
 {
-  // cout << uniqueId << " " << ISBN << " " << title << " " << author << " " << publicationDate << " " << description << " " << language;
-
-  cout << title;
+  cout << uniqueId << endl;
+  cout << ISBN << endl;
+  cout << title << endl;
+  cout << author << endl;
+  cout << publicationDate << endl;
+  cout << description << endl;
+  cout << language << endl;
 }
 
 void bookType::setBook(const string &uniqueId, const string &ISBN,

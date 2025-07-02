@@ -6,8 +6,6 @@
 #include "doublyLinkedList.h" // for nodeType
 #include "bookType.h"         // if needed directly
 
-using namespace std;
-
 void showMainMenu(libraryCatalogType &catalog)
 {
   cout << "Welcome to the CSCI315 Library! What action would you like to perform?\n";
@@ -27,10 +25,10 @@ void showMainMenu(libraryCatalogType &catalog)
   case 1:
     clearScreen();
     catalog.print();
-    system("pause");
+    pause();
     break;
   case 2:
-    searchBook();
+    searchBook(catalog);
     break;
   case 3:
     uploadBooks();
@@ -43,9 +41,16 @@ void showMainMenu(libraryCatalogType &catalog)
     break;
   default:
     cout << "Invalid selection.\n";
-    system("pause");
+    pause();
     break;
   }
+}
+
+void pause()
+{
+  cout << "\nPress Enter to continue...";
+  cin.ignore();
+  cin.get();
 }
 
 void clearScreen()
@@ -62,12 +67,47 @@ void escapeText()
   cout << "\033[0m"; // reset formatting (for Unix terminals)
 }
 
-void searchBook()
+void searchBook(libraryCatalogType &catalog)
 {
   clearScreen();
   escapeText();
-  cout << "Search Catalog (Not yet implemented)\n\n";
-  system("pause");
+  cout << "Search Book\n\n";
+
+  cin.ignore(); // flush newline character
+
+  string sTitle;
+  cout << "Enter a title to search: ";
+  getline(cin, sTitle);
+
+  transform(sTitle.begin(), sTitle.end(), sTitle.begin(), ::tolower);
+
+  nodeType<bookType> *current = catalog.getFirst();
+  bool found = false;
+
+  while (current != nullptr)
+  {
+    string currentTitle = current->info.getTitle();
+    string originalTitle = currentTitle;
+
+    transform(currentTitle.begin(), currentTitle.end(), currentTitle.begin(), ::tolower);
+
+    if (currentTitle == sTitle)
+    {
+      cout << "\nBook titled '" << originalTitle << "' found!\n\n";
+      current->info.print();
+      found = true;
+      break;
+    }
+
+    current = current->next;
+  }
+
+  if (!found)
+  {
+    cout << "\nBook titled '" << sTitle << "' not found.\n\n";
+  }
+
+  pause();
 }
 
 void uploadBooks()
@@ -75,7 +115,7 @@ void uploadBooks()
   clearScreen();
   escapeText();
   cout << "Upload Books (Not yet implemented)\n\n";
-  system("pause");
+  pause();
 }
 
 void addBook(libraryCatalogType &catalog)
@@ -107,7 +147,7 @@ void addBook(libraryCatalogType &catalog)
   catalog.insert(newBook);
 
   cout << "\nBook added successfully!\n";
-  system("pause");
+  pause();
 }
 
 void deleteBook(libraryCatalogType &catalog)
@@ -149,7 +189,7 @@ void deleteBook(libraryCatalogType &catalog)
     cout << "\nBook titled '" << titleToDelete << "' not found.\n";
   }
 
-  system("pause");
+  pause();
 }
 
 libraryCatalogType initializeLibrary(string file)

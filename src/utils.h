@@ -8,8 +8,9 @@
 libraryCatalogType initializeLibrary(string file);
 void showMainMenu(libraryCatalogType &catalog);
 void clearScreen();
+void pause();
 void escapeText();
-void searchBook();
+void searchBook(libraryCatalogType &catalog);
 void uploadBooks();
 void addBook(libraryCatalogType &catalog);
 void deleteBook(libraryCatalogType &catalog);

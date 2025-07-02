@@ -182,27 +182,27 @@ void doublyLinkedList<Type>::reversePrint() const
   } // end while
 } // end reversePrint
 
-// template <class Type>
-// bool doublyLinkedList<Type>::
-//     search(const Type &searchItem) const
-// {
-//   bool found = false;
-//   nodeType<Type> *current; // pointer to traverse the list
+template <class Type>
+bool doublyLinkedList<Type>::
+    search(const Type &searchItem) const
+{
+  bool found = false;
+  nodeType<Type> *current; // pointer to traverse the list
 
-//   current = first;
+  current = first;
 
-//   while (current != NULL && !found)
-//     if (current->info >= searchItem)
-//       found = true;
-//     else
-//       current = current->next;
+  while (current != NULL && !found)
+    if (current->info >= searchItem)
+      found = true;
+    else
+      current = current->next;
 
-//   if (found)
-//     found = (current->info == searchItem); // test for
-//                                            // equality
+  if (found)
+    found = (current->info == searchItem); // test for
+                                           // equality
 
-//   return found;
-// } // end search
+  return found;
+} // end search
 
 template <class Type>
 Type doublyLinkedList<Type>::front() const
