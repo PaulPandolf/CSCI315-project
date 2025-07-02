@@ -11,7 +11,7 @@ void clearScreen();
 void pause();
 void escapeText();
 void searchBook(libraryCatalogType &catalog);
-void uploadBooks();
+void uploadBooks(libraryCatalogType &catalog);
 void addBook(libraryCatalogType &catalog);
 void deleteBook(libraryCatalogType &catalog);
 

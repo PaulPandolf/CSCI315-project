@@ -1,0 +1,10 @@
+{"uniqueId": "ID021", "ISBN": "9780000000011", "title": "Zen and the Art of C++", "author": "Author K", "publicationDate": "2020-01-11", "description": "A philosophical take on C++ programming.", "language": "English"}
+{"uniqueId": "ID022", "ISBN": "9780000000012", "title": "Object-Oriented Design", "author": "Author L", "publicationDate": "2020-01-12", "description": "Core principles of object-oriented systems.", "language": "English"}
+{"uniqueId": "ID023", "ISBN": "9780000000013", "title": "C++ Templates", "author": "Author M", "publicationDate": "2020-01-13", "description": "The complete guide to templates in C++.", "language": "English"}
+{"uniqueId": "ID024", "ISBN": "9780000000014", "title": "Modern CMake", "author": "Author N", "publicationDate": "2020-01-14", "description": "Build system management for modern C++.", "language": "English"}
+{"uniqueId": "ID025", "ISBN": "9780000000015", "title": "The Art of Unit Testing", "author": "Author O", "publicationDate": "2020-01-15", "description": "Effective testing techniques for C++ and beyond.", "language": "English"}
+{"uniqueId": "ID026", "ISBN": "9780000000016", "title": "Real-Time C++", "author": "Author P", "publicationDate": "2020-01-16", "description": "Efficient object-oriented and template microcontroller programming.", "language": "English"}
+{"uniqueId": "ID027", "ISBN": "9780000000017", "title": "@C++ for Hackers", "author": "Author Q", "publicationDate": "2020-01-17", "description": "Offbeat tricks and fast coding in C++.", "language": "English"}
+{"uniqueId": "ID028", "ISBN": "9780000000018", "title": "Learn C++ by Building Games", "author": "Author R", "publicationDate": "2020-01-18", "description": "Practical projects for C++ beginners.", "language": "English"}
+{"uniqueId": "ID029", "ISBN": "9780000000019", "title": "Hello, C++ World!", "author": "Author S", "publicationDate": "2020-01-19", "description": "A beginner’s journey into C++.", "language": "English"}
+{"uniqueId": "ID030", "ISBN": "9780000000020", "title": "C++ with STL", "author": "Author T", "publicationDate": "2020-01-20", "description": "Leveraging the Standard Template Library.", "language": "English"}

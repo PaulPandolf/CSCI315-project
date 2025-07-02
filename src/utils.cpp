@@ -31,7 +31,7 @@ void showMainMenu(libraryCatalogType &catalog)
     searchBook(catalog);
     break;
   case 3:
-    uploadBooks();
+    uploadBooks(catalog);
     break;
   case 4:
     addBook(catalog);
@@ -110,11 +110,38 @@ void searchBook(libraryCatalogType &catalog)
   pause();
 }
 
-void uploadBooks()
+void uploadBooks(libraryCatalogType &catalog)
 {
   clearScreen();
   escapeText();
-  cout << "Upload Books (Not yet implemented)\n\n";
+  cout << "Upload Books\n\n";
+
+  cout << "Enter file name to upload: ";
+
+  string fileName;
+  ifstream infile;
+
+  while (true)
+  {
+    cout << "Enter the filename: ";
+    getline(cin, fileName);
+
+    infile.open(fileName);
+
+    if (infile.is_open())
+    {
+      catalog.uploadBooks(infile, catalog);
+      cout << "File uploaded successfully.\n";
+      break;
+    }
+    else
+    {
+      cerr << "File not found or failed to open. Please try again.\n";
+    }
+  }
+
+  getline(cin, fileName);
+
   pause();
 }
 
