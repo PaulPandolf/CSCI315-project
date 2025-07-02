@@ -1,11 +1,3 @@
-#include <cstdlib>
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <algorithm>
-#include "libraryCatalogType.h"
-#include "doublyLinkedList.h"
 #include "utils.h"
 
 using namespace std;
