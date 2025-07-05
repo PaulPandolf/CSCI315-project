@@ -33,21 +33,21 @@ From the project root, run:
 g++ -std=c++17 -Iinclude -o main src/*.cpp
 ```
 
-- `-std=c++17`: Use C++17 standard  
-- `-Iinclude`: Include headers from `include/`  
-- `-o main`: Output binary name  
-- `src/*.cpp`: Compile all source files  
+- `-std=c++17`: Use C++17 standard
+- `-Iinclude`: Include headers from `include/`
+- `-o main`: Output binary name
+- `src/*.cpp`: Compile all source files
 
 ## ▶️ Run
 
 ```bash
-./main
+./main.cpp
 ```
 
 ## 🧹 Clean Up
 
 ```bash
-rm main
+rm main.exe
 ```
 
 ## 📝 Notes
