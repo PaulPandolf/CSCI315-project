@@ -4,12 +4,11 @@ using namespace std;
 
 int main()
 {
-  libraryCatalogType libraryCatalog = initializeLibrary("libraryCatalog.ndjson");
+  libraryCatalogType libraryCatalog = initializeLibrary();
 
   while (true)
   {
     clearScreen();
-    libraryCatalog.print(); // debugging purposes
     cout << endl;
     showMainMenu(libraryCatalog);
   }

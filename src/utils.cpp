@@ -142,6 +142,7 @@ void uploadBooks(libraryCatalogType &catalog)
 
   getline(cin, fileName);
 
+  syncFileAndLinkedList(catalog);
   pause();
 }
 
@@ -173,7 +174,10 @@ void addBook(libraryCatalogType &catalog)
   bookType newBook(uniqueId, ISBN, title, author, publicationDate, description, language);
   catalog.insert(newBook);
 
+  syncFileAndLinkedList(catalog);
+
   cout << "\nBook added successfully!\n";
+
   pause();
 }
 
@@ -216,22 +220,63 @@ void deleteBook(libraryCatalogType &catalog)
     cout << "\nBook titled '" << titleToDelete << "' not found.\n";
   }
 
+  syncFileAndLinkedList(catalog);
   pause();
 }
 
-libraryCatalogType initializeLibrary(string file)
+void syncFileAndLinkedList(libraryCatalogType &catalog)
 {
-  libraryCatalogType libraryCatalog;
-  ifstream infile(file);
+  ofstream outfile("libraryCatalog.ndjson");
 
-  while (!infile)
+  if (!outfile)
   {
     clearScreen();
     cerr << "The library database file does not exist. Try again." << endl;
+    return;
+  }
+  else
+  {
+    // upload book database to the linked list
+    if (catalog.isEmptyList())
+      cout << "List is empty";
+
+    linkedListIterator<bookType> iterator(catalog.getFirst());
+
+    while (iterator != linkedListIterator<bookType>(nullptr))
+    {
+      bookType book = *iterator;
+
+      json myJson = {
+          {"uniqueId", book.getUniqueId()},
+          {"ISBN", book.getISBN()},
+          {"title", book.getTitle()},
+          {"author", book.getAuthor()},
+          {"publicationDate", book.getPublicationDate()},
+          {"description", book.getDescription()},
+          {"language", book.getLanguage()}};
+
+      outfile << myJson.dump() << endl;
+
+      ++iterator;
+    }
+
+    outfile.close();
+  }
+  return;
+}
+
+libraryCatalogType initializeLibrary()
+{
+  libraryCatalogType libraryCatalog;
+  std::ifstream infile("libraryCatalog.ndjson");
+
+  if (!infile)
+  {
+    std::ofstream outfile("libraryCatalog.ndjson");
+    outfile.close();
+    infile.open("libraryCatalog.ndjson");
   }
 
-  // upload book database to the linked list
   libraryCatalog.uploadBooks(infile, libraryCatalog);
-
   return libraryCatalog;
 }

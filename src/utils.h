@@ -5,7 +5,7 @@
 #include "libraryCatalogType.h"
 
 // Function declarations
-libraryCatalogType initializeLibrary(string file);
+libraryCatalogType initializeLibrary();
 void showMainMenu(libraryCatalogType &catalog);
 void clearScreen();
 void pause();
@@ -14,5 +14,6 @@ void searchBook(libraryCatalogType &catalog);
 void uploadBooks(libraryCatalogType &catalog);
 void addBook(libraryCatalogType &catalog);
 void deleteBook(libraryCatalogType &catalog);
+void syncFileAndLinkedList(libraryCatalogType &catalog);
 
 #endif // UTILS
